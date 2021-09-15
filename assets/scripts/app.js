@@ -1,23 +1,29 @@
 // variables
 const defaultResult = 0;
 let currentResult = defaultResult;
+const enteredNumber = +userInput.value
 // functions
 const add = () => {
-  currentResult = currentResult + +userInput.value;
-  outputResult(currentResult, '');
+    
+  const calcDescritption = `${currentResult} + ${enteredNumber}`;
+  currentResult = currentResult + ;
+  outputResult(currentResult, calcDescritption);
 };
 const substr = () => {
-  currentResult = currentResult - +userInput.value;
-  outputResult(currentResult, '');
+  const calcDescritption = `${currentResult} - ${enteredNumber}`;
+  currentResult = currentResult - +enteredNumber;
+  outputResult(currentResult, calcDescritption);
 };
 const multiply = () => {
-  currentResult = currentResult * +userInput.value;
-  outputResult(currentResult, '');
+  const calcDescritption = `${currentResult} * ${enteredNumber}`;
+  currentResult = currentResult * +enteredNumber;
+  outputResult(currentResult, calcDescritption);
 };
 
 const divide = () => {
-  currentResult = currentResult / +userInput.value;
-  outputResult(currentResult, '');
+  const calcDescritption = `${currentResult} / ${enteredNumber}`;
+  currentResult = currentResult / +enteredNumber;
+  outputResult(currentResult, calcDescritption);
 };
 
 // event listeners
