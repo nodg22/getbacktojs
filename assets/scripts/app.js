@@ -1,29 +1,39 @@
 // variables
 const defaultResult = 0;
 let currentResult = defaultResult;
-const enteredNumber = +userInput.value
+
 // functions
+
+const getUserNumberInput = () => +userInput.value;
+const createAndWriteLog = (operator, resultBeforeCalc, calcedNumber) => {
+    const calcDescritption = `${resultBeforeCalc} ${operator} ${calcedNumber}`;
+    outputResult(currentResult, calcDescritption);
+};
 const add = () => {
-    
-  const calcDescritption = `${currentResult} + ${enteredNumber}`;
-  currentResult = currentResult + ;
-  outputResult(currentResult, calcDescritption);
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult + enteredNumber;
+  createAndWriteLog('+', initialResult, enteredNumber);
+
 };
 const substr = () => {
-  const calcDescritption = `${currentResult} - ${enteredNumber}`;
-  currentResult = currentResult - +enteredNumber;
-  outputResult(currentResult, calcDescritption);
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult - enteredNumber;
+  createAndWriteLog('-', initialResult, enteredNumber);
 };
 const multiply = () => {
-  const calcDescritption = `${currentResult} * ${enteredNumber}`;
-  currentResult = currentResult * +enteredNumber;
-  outputResult(currentResult, calcDescritption);
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult * enteredNumber;
+  createAndWriteLog('*', initialResult, enteredNumber);
 };
 
 const divide = () => {
-  const calcDescritption = `${currentResult} / ${enteredNumber}`;
-  currentResult = currentResult / +enteredNumber;
-  outputResult(currentResult, calcDescritption);
+  const enteredNumber = getUserNumberInput();
+  const initialResult = currentResult;
+  currentResult = currentResult / enteredNumber;
+  createAndWriteLog('/', initialResult, enteredNumber);
 };
 
 // event listeners
