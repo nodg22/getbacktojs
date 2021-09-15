@@ -1,19 +1,27 @@
+// variables
 const defaultResult = 0;
-
 let currentResult = defaultResult;
-currentResult = (currentResult +10)*3/2-1;
-
-
-const calcDesc = `(${defaultResult} + 10) * 3/2 - 1`;
-const add = (a,b)=>{
-    const result = a+b;
-    return result;
-
-    
+// functions
+const add = () => {
+  currentResult = currentResult + +userInput.value;
+  outputResult(currentResult, '');
+};
+const substr = () => {
+  currentResult = currentResult - +userInput.value;
+  outputResult(currentResult, '');
+};
+const multiply = () => {
+  currentResult = currentResult * +userInput.value;
+  outputResult(currentResult, '');
 };
 
+const divide = () => {
+  currentResult = currentResult / +userInput.value;
+  outputResult(currentResult, '');
+};
 
-
-
-outputResult(currentResult, calcDesc);
-addBtn.addEventListener('click', add)
+// event listeners
+addBtn.addEventListener('click', add);
+subtractBtn.addEventListener('click', substr);
+multiplyBtn.addEventListener('click', multiply);
+divideBtn.addEventListener('click', divide);
