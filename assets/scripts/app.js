@@ -8,29 +8,38 @@ let logEntries = [];
 const getUserNumberInput = () => +userInput.value;
 const createAndWriteLog = (operator, resultBeforeCalc, calcedNumber) => {
   const calcDescritption = `${resultBeforeCalc} ${operator} ${calcedNumber}`;
-   outputResult(currentResult, calcDescritption);
-
-  
+  outputResult(currentResult, calcDescritption);
+};
+const writeToLog = (operation, prevResult, operationNUmber, newResult) => {
+  const logEntry = {
+    operation,
+    prevResult,
+    numberEntered: operationNUmber,
+    newResult,
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
 };
 const add = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteLog('+', initialResult, enteredNumber);
-  logEntries.push(initialResult);
-  console.log(logEntries);
+  writeToLog('ADD', initialResult, enteredNumber, currentResult);
 };
 const substr = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult -= enteredNumber;
   createAndWriteLog('-', initialResult, enteredNumber);
+  writeToLog('SUBSTRACT', initialResult, enteredNumber, currentResult);
 };
 const multiply = () => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
   currentResult *= enteredNumber;
   createAndWriteLog('*', initialResult, enteredNumber);
+  writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
 };
 
 const divide = () => {
@@ -38,6 +47,7 @@ const divide = () => {
   const initialResult = currentResult;
   currentResult /= enteredNumber;
   createAndWriteLog('/', initialResult, enteredNumber);
+  writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
 };
 
 // event listeners
