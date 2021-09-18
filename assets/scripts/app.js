@@ -5,7 +5,7 @@ let logEntries = [];
 
 // functions
 
-const getUserNumberInput = () => +userInput.value;
+const getUserNumberInput = () => parseInt(userInput.value) ;
 const createAndWriteLog = (operator, resultBeforeCalc, calcedNumber) => {
   const calcDescritption = `${resultBeforeCalc} ${operator} ${calcedNumber}`;
   outputResult(currentResult, calcDescritption);
