@@ -37,7 +37,7 @@ const calcResult = (calcType) => {
     caclOperator = '*';
   } else if (calcType === 'DIVIDE') {
     currentResult /= enteredNumber;
-    caclOperator = '/;';
+    caclOperator = '/';
   } else {
     return;
   }
