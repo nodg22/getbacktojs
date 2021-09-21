@@ -5,7 +5,7 @@ let logEntries = [];
 
 // functions
 
-const getUserNumberInput = () => parseInt(userInput.value) ;
+const getUserNumberInput = () => parseInt(userInput.value);
 const createAndWriteLog = (operator, resultBeforeCalc, calcedNumber) => {
   const calcDescritption = `${resultBeforeCalc} ${operator} ${calcedNumber}`;
   outputResult(currentResult, calcDescritption);
@@ -20,35 +20,36 @@ const writeToLog = (operation, prevResult, operationNUmber, newResult) => {
   logEntries.push(logEntry);
   console.log(logEntries);
 };
-const add = () => {
+
+const calcResult = (calcType) => {
   const enteredNumber = getUserNumberInput();
   const initialResult = currentResult;
-  currentResult += enteredNumber;
-  createAndWriteLog('+', initialResult, enteredNumber);
-  writeToLog('ADD', initialResult, enteredNumber, currentResult);
-};
-const substr = () => {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult -= enteredNumber;
-  createAndWriteLog('-', initialResult, enteredNumber);
-  writeToLog('SUBSTRACT', initialResult, enteredNumber, currentResult);
-};
-const multiply = () => {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult *= enteredNumber;
-  createAndWriteLog('*', initialResult, enteredNumber);
-  writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
+  let caclOperator;
+
+  if (calcType === 'ADD') {
+    currentResult += enteredNumber;
+    caclOperator = '+';
+  } else if (calcType === 'SUBSTRACT') {
+    currentResult -= enteredNumber;
+    caclOperator = '-';
+  } else if (calcType === 'MULTIPLY') {
+    currentResult *= enteredNumber;
+    caclOperator = '*';
+  } else if (calcType === 'DIVIDE') {
+    currentResult /= enteredNumber;
+    caclOperator = '/;';
+  } else {
+    return;
+  }
+
+  createAndWriteLog(caclOperator, initialResult, enteredNumber);
+  writeToLog(calcType, initialResult, enteredNumber, currentResult);
 };
 
-const divide = () => {
-  const enteredNumber = getUserNumberInput();
-  const initialResult = currentResult;
-  currentResult /= enteredNumber;
-  createAndWriteLog('/', initialResult, enteredNumber);
-  writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
-};
+const add = () => calcResult('ADD');
+const substr = () => calcResult('SUBSTRACT');
+const multiply = () => calcResult('MULTIPLY');
+const divide = () => calcResult('DIVIDE');
 
 // event listeners
 addBtn.addEventListener('click', add);
